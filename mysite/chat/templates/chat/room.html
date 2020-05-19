@@ -12,7 +12,7 @@
 </body>
 <script>
     var roomName = {{room_name_json}};
-
+	//var roomName = "";
     var chatSocket = new WebSocket(
         'ws://' + window.location.host +
         '/ws/chat/' + roomName + '/');
