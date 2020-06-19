@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'home',
+    'account',
     'channels',
     'chat',
     'django.contrib.admin',
