@@ -6,7 +6,9 @@
   <meta charset="utf-8">
   <title>MINE POST</title>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
-
+  <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="../../../../favicon.ico">
 </head>
 
 <body>
@@ -22,9 +24,6 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-  
-        </a>
-
         </a>
       </div>
 
@@ -36,8 +35,16 @@
             </div>
             <button type="submit" class="btn btn-primary">검색</button>
           </form>
-     
-  
+          {% if user.is_authenticated %}
+          <!-- 로그인한 경우 -->
+          <button type="button" class="btn btn-primary navbar-btn"
+            onclick="location.href='{% url 'account:logout' %}'">로그아웃</button>
+          {% else %}
+          <button type="button" class="btn btn-primary navbar-btn"
+            onclick="location.href='{% url 'account:login' %}'">로그인</button>
+          {% endif %}
+          <button type="button" class="btn btn-primary navbar-btn"
+            onclick="location.href='{% url 'account:signup' %}'">회원가입</button>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -50,7 +57,8 @@
       <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="dropdown">
-            
+            <a  class="dropdown-toggle mid_cat1" data-toggle="dropdown"
+              role="button" aria-expanded="false">정치</a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">청와대</a></li>
               <li><a href="#">북한</a></li>
@@ -59,7 +67,8 @@
             </ul>
           </li>
           <li class="dropdown">
-           
+            <a class="dropdown-toggle mid_cat1" data-toggle="dropdown"
+              role="button" aria-expanded="false">사회</a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">사건사고</a></li>
               <li><a href="#">지역</a></li>
@@ -68,7 +77,8 @@
             </ul>
           </li>
           <li class="dropdown">
-            
+            <a class="dropdown-toggle mid_cat1" data-toggle="dropdown"
+              role="button" aria-expanded="false">IT/과학</a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">통신</a></li>
               <li><a href="#">모바일</a></li>
@@ -77,7 +87,8 @@
             </ul>
           </li>
           <li class="dropdown">
-           
+            <a  class="dropdown-toggle mid_cat1" data-toggle="dropdown"
+              role="button" aria-expanded="false">문화/예술</a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">여행/레저</a></li>
               <li><a href="#">패션/뷰티</a></li>
@@ -86,7 +97,8 @@
             </ul>
           </li>
         </ul>
-        
+        <ul class="nav navbar-nav navbar-right">
+        </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
