@@ -3,23 +3,51 @@
 {% block title %}index.html{% endblock %}
 
 {% block content %}
-    <h1>What chat room would you like to enter?</h1>
-    <br> <h5>영어로된 채팅방 이름만 가능</h5>
-    <br>
-    <input id="room-name-input" type="text" size="100"/><br/>
-    <input id="room-name-submit" type="button" value="Enter"/>
+<h1> 채팅방 입장하기 - {{user}}</h1>
+<p class="font-italic">asdfasdf</p>
+
+{% if form.errors %}
+<div class="alert alert-danger">
+	<div class="font-weight-bold">Wrong!! Please correct the error(s) below.</div>
+	{{ form.errors }}
+</div>
+{% endif %}
+
+<ul>
+	{% for chatting in object_list %}
+		<li>
+		<a href="">{{ chatting }}</a>
+		</li>
+	{% endfor %}
+</ul>
+
+
+    Chatting Room Name:<br>
+    <input id="room-name-input" type="text" size="100" name="room-name"/><br>
+    Chatting Room Password:<br>
+    <input id="room-pass-input" type="text" size="20" name="room-pass"/><br>
+    <input id="room-name-submit" type="submit" value="Enter"/><br>
 
     <script>
-        document.querySelector('#room-name-input').focus();
+		///var roomPass=document.getElementById('room-pass-input');
+		//roomPass.addEventListener('click', function(){alert('HelloWorld');})
+        //document.querySelector('#room-name-input').focus();
         document.querySelector('#room-name-input').onkeyup = function(e) {
             if (e.keyCode === 13) {  // enter, return
-                document.querySelector('#room-name-submit').click();
+               document.querySelector('#room-name-submit').click();
+            }
+        };
+        
+        document.querySelector('#room-pass-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+               document.querySelector('#room-pass-submit').click();
             }
         };
 
         document.querySelector('#room-name-submit').onclick = function(e) {
             var roomName = document.querySelector('#room-name-input').value;
-            window.location.pathname = '/chat/' + roomName + '/';
+            var roomPass = document.querySelector('#room-pass-input').value;
+            window.location.pathname = '/chat/' + roomName + '/'+roomPass+'/';
         };
     </script>
 

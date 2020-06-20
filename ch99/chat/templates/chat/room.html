@@ -4,13 +4,15 @@
 
 {% block content %}
 
+<h1>{{room_name_json}}</h1>
 <textarea id="chat-log" cols="100" rows="20"></textarea><br/>
 <input id="chat-message-input" type="text" size="100"/><br/>
 <input id="chat-message-submit" type="button" value="Send"/>
 
 <script>
     var roomName = {{room_name_json}};
-	//var roomName = "";
+    var roomPass = {{room_pass_json}};
+	var user={{user}};
     var chatSocket = new WebSocket(
         'ws://' + window.location.host +
         '/ws/chat/' + roomName + '/');
@@ -18,7 +20,7 @@
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
-        document.querySelector('#chat-log').value += (message + '\n');
+        document.querySelector('#chat-log').value += (user+' : '+message + '\n' );
     };
 
     chatSocket.onclose = function(e) {
