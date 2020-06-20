@@ -28,5 +28,6 @@ urlpatterns = [
     #test
     path('bookmark/', include('bookmark.urls')),
     path('blog/', include('blog.urls')),
+    path('chat/', include('chat.urls')),
     path('',HomeView.as_view(), name='home'),
 ]
