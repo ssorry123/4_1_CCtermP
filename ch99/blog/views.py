@@ -18,7 +18,7 @@ class PostLV(ListView) :
 	context_object_name = 'posts'
 	# 한 페이지에 보여주는 객체 리스트 2, 속성을 정의하면
 	# 장고 제공 페이징 기능 사용 가능
-	paginate_by = 2
+	paginate_by = 10
 
 # DetailView
 class PostDV(DetailView):
