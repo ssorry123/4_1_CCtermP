@@ -27,21 +27,7 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=12
-FILE_NAME_0=248;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fbookmark%2Fviews.py;0;4
-FILE_NAME_1=260;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fbookmark%2Ftemplates%2Fbookmark%2Fbookmark_list.html;0;4
-FILE_NAME_2=142;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fbookmark%2Ftemplates%2Fbookmark%2Fbookmark_detail.html;0;4
-FILE_NAME_3=556;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fblog%2Fmodels.py;0;4
-FILE_NAME_4=305;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fblog%2Fadmin.py;0;4
-FILE_NAME_5=960;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fmysite%2Furls.py;0;4
-FILE_NAME_6=307;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fbookmark%2Furls.py;0;4
-FILE_NAME_7=262;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fblog%2Furls.py;0;4
-FILE_NAME_8=1262;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fblog%2Fviews.py;0;4
-FILE_NAME_9=194;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fblog%2Ftemplates%2Fblog%2Fpost_all.html;0;4
-FILE_NAME_10=149;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fblog%2Ftemplates%2Fblog%2Fpost_detail.html;0;4
-FILE_NAME_11=179;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fblog%2Ftemplates%2Fblog%2Fpost_archive.html;0;4
-FILE_NAME_12=171;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fblog%2Ftemplates%2Fblog%2Fpost_archive_year.html;0;4
-FILE_NAME_13=38;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fblog%2Ftemplates%2Fblog%2Fpost_archive_month.html;0;4
+current_page=-1
 
 [VTE]
 last_dir=/home/park

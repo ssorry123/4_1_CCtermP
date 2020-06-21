@@ -13,6 +13,7 @@
     var roomName = {{room_name_json}};
     var roomPass = {{room_pass_json}};
 	var user={{user}};
+	var user = user.toString();
     var chatSocket = new WebSocket(
         'ws://' + window.location.host +
         '/ws/chat/' + roomName + '/');
