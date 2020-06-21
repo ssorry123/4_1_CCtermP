@@ -45,17 +45,29 @@ def chatting(request):
     return render(request, 'chat/chatting.html', {})
 
 def room(request, room_name, room_pass):
-	#아래와 같이 직접접근하지말것 에러남
-	#print(request.user.username)
-	user=str(request.user.get_username())
-	#print(User.get_username(User))
-	
-	#print(str(User.get_username(self)))
+	# 방 이름과 방 비밀번호를 일치하게 입력하였는지 확인
+	u_title=str(room_name)	# 사용자가 입력한 방 이름
+	u_password=str(room_pass)	# 사용자가 입력한 방 비밀번호
+	print(u_title)	# 확인용 출력
+	print(u_password)	# 확인용 출력
+	# 실제 방이름에 해당하는 비밀번호
+	# 방이름에 해당하는 객체가 존재하지 않으면 에러 발생
+	print(Chatting.objects.get(title=u_title))
+	password = Chatting.objects.get(title=u_title).get_password()	
+	print(password)
+	print(password==u_password)
+	# 비밀번호가 일치하면 채팅 서버 실행(소켓 연결)
+	if password==u_password:
+		return render(request, 'chat/room.html', {
+			'room_name_json': mark_safe(json.dumps(room_name)),
+			'room_pass_json': mark_safe(json.dumps(room_pass)),
+			})
 
-	return render(request, 'chat/room.html', {
-		'room_name_json': mark_safe(json.dumps(room_name)),
-		'room_pass_json': mark_safe(json.dumps(room_pass)),
-		'user':mark_safe(json.dumps(user)),
-		})
+	# 방 이름에 해당하는 객체가 존재하지 않으면 에러 발생
+	# 방이름에 해당하는 객체가 있어도 비밀번호가 틀리면 에러 발생
+	# 가벼운 수준의 완벽한 보안.
+	return None
+
+
 
 

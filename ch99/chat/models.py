@@ -8,5 +8,7 @@ class Chatting(models.Model):
 	password = models.CharField('PASSWORD', max_length=15 ,unique=False, null=True)
 	owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 	
+	def get_password(self):
+		return self.password
 	def __str__(self):
 		return self.title
