@@ -27,7 +27,14 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=-1
+current_page=5
+FILE_NAME_0=2382;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fchat%2Fviews.py;0;4
+FILE_NAME_1=177;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fchat%2Furls.py;0;4
+FILE_NAME_2=402;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fchat%2Ftemplates%2Fchat%2Findex.html;0;4
+FILE_NAME_3=0;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fchat%2Ftemplates%2Fchat%2Fchatting_confirm_delete.html;0;4
+FILE_NAME_4=390;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fchat%2Ftemplates%2Fchat%2Froom.html;0;4
+FILE_NAME_5=575;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fchat%2Fmodels.py;0;4
+FILE_NAME_6=205;Python;0;EUTF-8;1;1;0;%2Fhome%2Fpark%2Fcctermp%2Fch99%2Fchat%2Fadmin.py;0;4
 
 [VTE]
 last_dir=/home/park
