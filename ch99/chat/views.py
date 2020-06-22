@@ -12,10 +12,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.contrib.auth.models import User
 
+
+### 채팅방 메인 화면 ###
 class ChattingLV(ListView, LoginRequiredMixin):
 	model = Chatting
 	template_name = 'chat/index.html'
-	
+
+
+### 채팅방 관리 부분 ###
 class ChattingCreateView(LoginRequiredMixin, CreateView):
 	model = Chatting
 	fields = ['title', 'password']
@@ -41,15 +45,9 @@ class ChattingDeleteView(OwnerOnlyMixin, DeleteView):
 	success_url = reverse_lazy('chat:index')
 
 
-def chatting(request):
-    return render(request, 'chat/chatting.html', {})
 
-def room(request,room_name):
-	return render(request, 'chat/room.html',{
-		'room_name_json':mark_safe(json.dumps(room_name)),
-		})
-
-def room1(request, room_name, room_pass):
+def room(request, room_name, room_pass, room_nick):
+	#return render(request, 'chat/index.html',)
 	# 방 이름과 방 비밀번호를 일치하게 입력하였는지 확인
 	u_title=str(room_name)	# 사용자가 입력한 방 이름
 	u_password=str(room_pass)	# 사용자가 입력한 방 비밀번호
@@ -66,6 +64,7 @@ def room1(request, room_name, room_pass):
 		return render(request, 'chat/room.html', {
 			'room_name_json': mark_safe(json.dumps(room_name)),
 			'room_pass_json': mark_safe(json.dumps(room_pass)),
+			'room_nick_json': mark_safe(json.dumps(room_nick)),
 			})
 
 	# 방 이름에 해당하는 객체가 존재하지 않으면 에러 발생

@@ -26,6 +26,8 @@
     <input id="room-name-input" type="text" size="100" name="room-name"/><br>
     Chatting Room Password:<br>
     <input id="room-pass-input" type="text" size="20" name="room-pass"/><br>
+    Chatting User Nicksname:<br>
+    <input id="room-nick-input" type="text" size="20" name="room-nick"/><br>
     <input id="room-name-submit" type="submit" value="Enter"/><br>
 
     <script>
@@ -37,18 +39,24 @@
                document.querySelector('#room-name-submit').click();
             }
         };
-        
+        document.querySelector('#room-nick-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+               document.querySelector('#room-nick-submit').click();
+            }
+        };
         document.querySelector('#room-pass-input').onkeyup = function(e) {
             if (e.keyCode === 13) {  // enter, return
                document.querySelector('#room-pass-submit').click();
             }
         };
 
+
         document.querySelector('#room-name-submit').onclick = function(e) {
             var roomName = document.querySelector('#room-name-input').value;
             var roomPass = document.querySelector('#room-pass-input').value;
-            //window.location.pathname = '/chat/' + roomName + '/'+roomPass+'/';
-            window.location.pathname = '/chat/' + roomName + '/';
+            var roomNick = document.querySelector('#room-nick-input').value;
+            window.location.pathname = '/chat/' + roomName + '/'+roomPass+'/'+roomNick+'/';
+            //window.location.pathname = '/chat/' + roomName + '/'+'asdf/';
         };
     </script>
 

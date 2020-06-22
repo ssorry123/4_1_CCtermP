@@ -21,33 +21,50 @@
 	{% endfor %}
 </ul>
 
-<h1>{{name}}</h1>
+<textarea id="chat-log" cols="100" rows="20"></textarea><br/>
+<input id="chat-message-input" type="text" size="100"/><br/>
+<input id="chat-message-submit" type="button" value="Send"/>	
 
-    Chatting Room Name:<br>
-    <input id="room-name-input" type="text" size="100" name="room-name"/><br>
+<script>
+    var roomName = {{room_name_json}};
+    var roomPass = {{room_pass_json}};
+    var roomNick = {{room_nick_json}};
+	//var user={{user}};
+	//var user = user.toString();
+	// 실제 채팅 서버를 연다
+    var chatSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/chat/' + roomName + '/');
+        // socket은 /ws/chat/roomName/으로 열림, 
+        // 주소창에 chat/room_name/room_pass/room_nick/ 내용은 상관없음
+        // 하지만 django에서 room_pass, room_nick을 임의로 입력하면 접속되지 않게 막음.
 
+    chatSocket.onmessage = function(e) {
+        var data = JSON.parse(e.data);
+        var message = data['message'];
+        document.querySelector('#chat-log').value += ('Anonymous : '+message + '\n' );
+    };
 
-    <script>
-		///var roomPass=document.getElementById('room-pass-input');
-		//roomPass.addEventListener('click', function(){alert('HelloWorld');})
-        //document.querySelector('#room-name-input').focus();
-        document.querySelector('#room-name-input').onkeyup = function(e) {
-            if (e.keyCode === 13) {  // enter, return
-               document.querySelector('#room-name-submit').click();
-            }
-        };
-        
-        document.querySelector('#room-pass-input').onkeyup = function(e) {
-            if (e.keyCode === 13) {  // enter, return
-               document.querySelector('#room-pass-submit').click();
-            }
-        };
+    chatSocket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly');
+    };
 
-        document.querySelector('#room-name-submit').onclick = function(e) {
-            var roomName = document.querySelector('#room-name-input').value;
-            var roomPass = document.querySelector('#room-pass-input').value;
-            window.location.pathname = '/chat/' + roomName + '/'+roomPass+'/';
-        };
-    </script>
+    document.querySelector('#chat-message-input').focus();
+    document.querySelector('#chat-message-input').onkeyup = function(e) {
+        if (e.keyCode === 13) {  // enter, return
+            document.querySelector('#chat-message-submit').click();
+        }
+    };
+
+    document.querySelector('#chat-message-submit').onclick = function(e) {
+        var messageInputDom = document.querySelector('#chat-message-input');
+        var message = messageInputDom.value;
+        chatSocket.send(JSON.stringify({
+            'message': message
+        }));
+
+        messageInputDom.value = '';
+    };
+</script>
 
 {% endblock %}
