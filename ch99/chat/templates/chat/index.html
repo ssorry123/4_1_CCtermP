@@ -3,8 +3,10 @@
 {% block title %}index.html{% endblock %}
 
 {% block content %}
-<h1> 채팅방 입장하기 - {{user}}</h1>
-<p class="font-italic">asdfasdf</p>
+<h1> 채팅방 입장 - 당신의 ID : {{user}}</h1>
+<h3>입장을 원하는 방 이름과 방 비밀번호, 당신의 닉네임을 입력하세요</h3>
+<p class="font-italic">방장이 허용한 사람만 입장이 가능하며 당신의 ID와</p>
+<p class="font-italic">당신이 방장에게 알려준 닉네임은 다를 수 있습니다.</p>
 
 {% if form.errors %}
 <div class="alert alert-danger">
@@ -13,44 +15,44 @@
 </div>
 {% endif %}
 
-<ul>
-	{% for chatting in object_list %}
-		<li>
-		<a href="">{{ chatting }}</a>
-		</li>
-	{% endfor %}
-</ul>
+
 
 
     Chatting Room Name:<br>
-    <input id="room-name-input" type="text" size="100" name="room-name"/><br>
+    <input id="room-name-input" type="text" size="50" name="room-name"/><br>
     Chatting Room Password:<br>
-    <input id="room-pass-input" type="text" size="20" name="room-pass"/><br>
+    <input id="room-pass-input" type="text" size="30" name="room-pass"/><br>
     Chatting User Nicksname:<br>
-    <input id="room-nick-input" type="text" size="20" name="room-nick"/><br>
-    <input id="room-name-submit" type="submit" value="Enter"/><br>
+    <input id="room-nick-input" type="text" size="30" name="room-nick"/><br>
+    <input id="room-name-submit" type="button" value="입장하기!" size="40"><br>
 
     <script>
 		///var roomPass=document.getElementById('room-pass-input');
 		//roomPass.addEventListener('click', function(){alert('HelloWorld');})
-        //document.querySelector('#room-name-input').focus();
+		/*
+        document.querySelector('#room-name-input').focus();
         document.querySelector('#room-name-input').onkeyup = function(e) {
             if (e.keyCode === 13) {  // enter, return
                document.querySelector('#room-name-submit').click();
             }
         };
+        document.querySelector('#room-nick-input').focus();
         document.querySelector('#room-nick-input').onkeyup = function(e) {
             if (e.keyCode === 13) {  // enter, return
                document.querySelector('#room-nick-submit').click();
             }
         };
-        document.querySelector('#room-pass-input').onkeyup = function(e) {
+        */
+        // room-nick-input을 감시합니다
+        // enter를 치면 room-name-submit버튼을 클릭합니다
+        document.querySelector('#room-nick-input').focus();
+        document.querySelector('#room-nick-input').onkeyup = function(e) {
             if (e.keyCode === 13) {  // enter, return
-               document.querySelector('#room-pass-submit').click();
+               document.querySelector('#room-name-submit').click();
             }
         };
 
-
+		// room-name-submit 버튼을 누르면 경로를 이동합니다
         document.querySelector('#room-name-submit').onclick = function(e) {
             var roomName = document.querySelector('#room-name-input').value;
             var roomPass = document.querySelector('#room-pass-input').value;
@@ -59,5 +61,14 @@
             //window.location.pathname = '/chat/' + roomName + '/'+'asdf/';
         };
     </script>
+    
+<br><h4>활성화된 채팅방 목록</h4>
+<ul>
+	{% for chatting in object_list %}
+		<li>
+		<a href="">{{ chatting }}</a>
+		</li>
+	{% endfor %}
+</ul>
 
 {% endblock %}

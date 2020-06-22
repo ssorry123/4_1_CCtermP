@@ -19,7 +19,7 @@ class ChattingLV(ListView, LoginRequiredMixin):
 	template_name = 'chat/index.html'
 
 
-### 채팅방 관리 부분 ###
+### 채팅방 모델 관리 부분 ###
 class ChattingCreateView(LoginRequiredMixin, CreateView):
 	model = Chatting
 	fields = ['title', 'password','member']

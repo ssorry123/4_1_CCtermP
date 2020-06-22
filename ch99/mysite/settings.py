@@ -47,6 +47,11 @@ INSTALLED_APPS = [
 ASGI_APPLICATION = 'mysite.routing.application'
 CHANNEL_LAYERS = {
     'default': {
+		# 백엔드로 redis를 사용하는 channel_layer를 구현하기전
+		# 설정을 잡아준다
+		# Redis가 설치되어있어야 하며
+		# channels가 redis인터페이스를 알 수 있도록
+		# channels_redis 패키지를 설치하여야 한다
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [('127.0.0.1', 6379)],

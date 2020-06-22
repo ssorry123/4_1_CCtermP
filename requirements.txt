@@ -1,2 +1,5 @@
 channels
 django-widget-tweaks
+redis
+channels_redis
+
