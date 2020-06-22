@@ -18,7 +18,9 @@ urlpatterns = [
     # /chat/00/delete
     path('<int:pk>/delete/', views.ChattingDeleteView.as_view(), name="delete"),
     
+    path('<str:room_name>/', views.room, name='room'),
+    
     # 채팅방 접속, /chat/chatroomname/passwordqwer/
-    path('<str:room_name>/<str:room_pass>/', views.room, name='room'),
+    path('<str:room_name>/<str:room_pass>/', views.room1, name='room1'),
 ]
 #path('', views.ChattingLV.as_view(), name = 'index'),

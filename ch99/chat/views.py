@@ -44,7 +44,12 @@ class ChattingDeleteView(OwnerOnlyMixin, DeleteView):
 def chatting(request):
     return render(request, 'chat/chatting.html', {})
 
-def room(request, room_name, room_pass):
+def room(request,room_name):
+	return render(request, 'chat/room.html',{
+		'room_name_json':mark_safe(json.dumps(room_name)),
+		})
+
+def room1(request, room_name, room_pass):
 	# 방 이름과 방 비밀번호를 일치하게 입력하였는지 확인
 	u_title=str(room_name)	# 사용자가 입력한 방 이름
 	u_password=str(room_pass)	# 사용자가 입력한 방 비밀번호

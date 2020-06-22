@@ -11,9 +11,9 @@
 
 <script>
     var roomName = {{room_name_json}};
-    var roomPass = {{room_pass_json}};
-	var user={{user}};
-	var user = user.toString();
+    //var roomPass = {{room_pass_json}};
+	//var user={{user}};
+	//var user = user.toString();
 	// 실제 채팅 서버를 연다
     var chatSocket = new WebSocket(
         'ws://' + window.location.host +
@@ -22,7 +22,7 @@
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
-        document.querySelector('#chat-log').value += (user+' : '+message + '\n' );
+        document.querySelector('#chat-log').value += (' : '+message + '\n' );
     };
 
     chatSocket.onclose = function(e) {
