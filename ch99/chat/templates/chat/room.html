@@ -22,6 +22,13 @@
     var roomName = {{room_name_json}};
     var roomPass = {{room_pass_json}};
     var roomNick = {{room_nick_json}};
+    var today = new Date();
+    var year = today.getFullYear();
+    var month=today.getMonth()+1;
+    var date = today.getDate();
+    var hours= today.getHours();
+    var minutes=today.getMinutes();
+    var show=month+'/'+date+'/'+year+'  '+hours+':'+minutes;
 	//var user={{user}};
 	//var user = user.toString();
 	// 실제 채팅 서버를 연다
@@ -36,7 +43,7 @@
         var data = JSON.parse(e.data);
         var message = data['message'];
         // chat-log에 메시지 내용을 출력함
-        document.querySelector('#chat-log').value += ('Anonymous : '+message + '\n' );
+        document.querySelector('#chat-log').value += (show +'---'+message + '\n' );
     };
 
     chatSocket.onclose = function(e) {
