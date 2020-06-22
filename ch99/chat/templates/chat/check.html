@@ -3,8 +3,9 @@
 {% block title %}index.html{% endblock %}
 
 {% block content %}
-<h1> 채팅방 입장하기 - {{user}}</h1>
-<p class="font-italic">asdfasdf</p>
+<h1>{{user}}님은 {{room_name_json}}방에 입장하셨습니다!</h1>
+<p class="font-italic">누가 방장인지는 아무도 모릅니다!</p>
+<p class="font-italic">이 글은 오직 방장에게만 보입니다! 당신은 방장입니다.</p>
 
 {% if form.errors %}
 <div class="alert alert-danger">
@@ -13,13 +14,6 @@
 </div>
 {% endif %}
 
-<ul>
-	{% for chatting in object_list %}
-		<li>
-		<a href="">{{ chatting }}</a>
-		</li>
-	{% endfor %}
-</ul>
 
 <textarea id="chat-log" cols="100" rows="20"></textarea><br/>
 <input id="chat-message-input" type="text" size="100"/><br/>

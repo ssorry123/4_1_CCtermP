@@ -58,7 +58,7 @@ def room(request, room_name, room_pass, room_nick):
 	guest=str(request.user.username)	# 채팅방 접속하는 사람 id
 	print(owner);print(guest);		# 확인용 출력
 	if guest==owner:
-		return render(request, 'chat/room.html', {
+		return render(request, 'chat/check.html', {
 			'room_name_json': mark_safe(json.dumps(room_name)),
 			'room_pass_json': mark_safe(json.dumps(room_pass)),
 			'room_nick_json': mark_safe(json.dumps(room_nick)),

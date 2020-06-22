@@ -17,10 +17,7 @@ class Chatting(models.Model):
 		# members에 허용한 사용자가 있는지 확인한다.
 		# 허용하지 않은 사용자이면 -1를 반환한다(str에 member_name이 존재하는지 파이썬 문자열 함수)
 		# 존재하면 offset 반환, 존재하지 않으면 -1 반환
-		print(1)
-		print(member_name)
-		print(members)
-		print(2)
+		print(1);print(member_name);print(members);print(2)
 		ret = members.find(member_name)
 		# 허용된 사용자일 경우 True 반환
 		if ret!=-1:
