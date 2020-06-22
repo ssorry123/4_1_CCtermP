@@ -5,8 +5,12 @@
 
 {% block content %}
 
-<h1>Chatting Create/Update - {{user}}</h1>
-<p class="font-italic">asdfasdf</p>
+<h1>채팅방을 만들거나 채팅방 정보를 수정하실 수 있습니다. - {{user}}</h1>
+<p class="font-italic">TITLE에 채팅방의 이름을 입력하세요. 이미 존재하는 경우 만들 수 없습니다.</p>
+<p class="font-italic">PASSWORD에 채팅방 비밀번호를 입력하세요. 비밀번호는 반드시 존재하여야 합니다.</p>
+<p class="font-italic">MEMBER 필드에 채팅방에 접속을 허용할 User의 ID를 입력하세요</p>
+<p class="font-italic">		ex)park, kim, lee, ....</p>
+<p class="font-italic">		ex)warning : 빈칸일 경우 비밀번호를 아는 모두에게 허용됩니다.</p>
 
 {% if form.errors %}
 <div class="alert alert-danger">
@@ -15,7 +19,7 @@
 </div>
 {% endif %}
 
-<form action="." method="post" class="card pt-3">{% csrf_token %}
+<form action="." method="post" class="card pt-5">{% csrf_token %}
 	<div class="form-group row">
 		{{ form.title|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
 		<div class="col-sm-5">
@@ -25,7 +29,13 @@
 	<div class="form-group row">
 		{{ form.password|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
 		<div class="col-sm-5">
-			{{ form.password|add_class:"form-control" }}
+			{{ form.password|add_class:"form-control"|attr:"autofocus" }}
+		</div>
+	</div>
+	<div class="form-group row">
+		{{ form.member|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+		<div class="col-sm-5">
+			{{ form.member|add_class:"form-control"|attr:"autofocus" }}
 		</div>
 	</div>
 	

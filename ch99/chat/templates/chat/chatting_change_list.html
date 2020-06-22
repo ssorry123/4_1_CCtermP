@@ -11,6 +11,7 @@
 			<th>Title</th>
 			<th>Password</th>
 			<th>Owner</th>
+			<th>Member</th>
 			<th>Update</th>
 			<th>Delete</th>
 		</tr>
@@ -22,6 +23,7 @@
 			<td>{{item.title}}</td>
 			<td>{{item.password}}</td>
 			<td>{{item.owner}}</td>
+			<td>{{item.member}}</td>
 			<td><a href="{% url 'chat:update' item.id %}">Update</a></td>
 			<td><a href="{% url 'chat:delete' item.id %}">Delete</a></td>
 		</tr>

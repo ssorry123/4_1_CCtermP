@@ -29,7 +29,7 @@ urlpatterns = [
     # /chat/room_name/ 보안 문제로 해제, 비밀번호 없이 접속 가능
     #path('<str:room_name>/', views.room, name='room'),
     
-	# /chat/room_name/room_pass/ 보안 문제로 해제, 방 주인이 blacklist를 설정해도 접속 가능
+	# /chat/room_name/room_pass/ 보안 문제로 해제, 방 주인이 특정 멤버를 허용 안해도 접속 가능
     #path('<str:room_name>/<str:room_pass>/', views.room, name='room'),
     
 	# /chat/room_name/room_pass/room_nick/ 비밀번호 및 방 주인의 blacklist 기능 사용 가능
